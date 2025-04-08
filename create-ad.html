@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>PixelX - Create Ad</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">PixelX</a>
+            <div class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="create-ad.html" class="active">Create Ad</a>
+                <a href="monitor-ads.html">Monitor Ads</a>
+                <a href="index.html">Logout</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="ad-creation">
+        <div class="ad-container">
+            <h2 data-aos="fade-up">Create New Advertisement</h2>
+            <br>
+            <form class="ad-form" id="adForm" data-aos="zoom-in">
+                <div class="form-group">
+                    <label>Campaign Name</label>
+                    <input class="create-ad-text" type="text" id="campaignName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Ad Type</label>
+                    <select id="adType" required>
+                        <option value="">Select Ad Type</option>
+                        <option value="banner">Banner Ad</option>
+                        <option value="video">Video Ad</option>
+                        <option value="native">Native Ad</option>
+                        <option value="social">Social Media Ad</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Target Audience</label>
+                    <div class="audience-tags">
+                        <span class="tag" data-value="male">Male</span>
+                        <span class="tag" data-value="female">Female</span>
+                        <span class="tag" data-value="18-24">18-24</span>
+                        <span class="tag" data-value="25-34">25-34</span>
+                        <span class="tag" data-value="35-44">35-44</span>
+                    </div>
+                    <input type="hidden" id="selectedAudience">
+                </div>
+                
+                <div class="form-group">
+                    <label>Upload Creative</label>
+                    <div class="upload-area" id="uploadArea">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop your files here or click to browse</p>
+                        <input type="file" id="adCreative" accept="image/*,video/*" hidden>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Budget ($)</label>
+                    <input class="create-ad-text" type="number" id="budget" min="50" required>
+                </div>
+                
+                <button type="submit" class="cta-btn">Launch Campaign</button>
+            </form>
+        </div>
+    </section>
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

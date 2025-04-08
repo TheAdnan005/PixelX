@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>PixelX - Monitor Ads</title>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">PixelX</a>
+            <div class="nav-links">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="create-ad.html">Create Ad</a>
+                <a href="monitor-ads.html" class="active">Monitor Ads</a>
+                <a href="index.html">Logout</a>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="monitor-ads">
+        <div class="monitor-container">
+            <h2 data-aos="fade-up">Your Active Campaigns</h2>
+            
+            <div class="campaign-filters" data-aos="fade-up">
+                <div class="filter-group">
+                    <label>Filter by:</label>
+                    <select id="campaignFilter">
+                        <option value="all">All Campaigns</option>
+                        <option value="active">Active</option>
+                        <option value="paused">Paused</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+                
+                <div class="date-range">
+                    <input class="monitor-ads-date" type="date" id="startDate">
+                    <span>to</span>
+                    <input class="monitor-ads-date" type="date" id="endDate">
+                </div>
+            </div>
+            
+            <div class="campaign-stats" data-aos="zoom-in">
+                <div class="stat-card">
+                    <h3>Impressions</h3>
+                    <p class="stat-value">245,678</p>
+                    <p class="stat-change up">+12%</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Clicks</h3>
+                    <p class="stat-value">12,345</p>
+                    <p class="stat-change up">+5%</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>CTR</h3>
+                    <p class="stat-value">5.02%</p>
+                    <p class="stat-change down">-0.8%</p>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Spend</h3>
+                    <p class="stat-value">$3,245.50</p>
+                    <p class="stat-change up">+18%</p>
+                </div>
+            </div>
+            
+            <div class="campaign-list" data-aos="fade-up">
+                <div class="campaign-item">
+                    <div class="campaign-info">
+                        <h3>Summer Sale 2023</h3>
+                        <p>Banner Ad • Running • $1,200 budget</p>
+                    </div>
+                    <div class="campaign-actions">
+                        <button class="action-btn view"><i class="fas fa-chart-bar"></i> View Stats</button>
+                        <button class="action-btn edit"><i class="fas fa-edit"></i> Edit</button>
+                        <button class="action-btn pause"><i class="fas fa-pause"></i> Pause</button>
+                    </div>
+                </div>
+                <!-- More campaign items would be here -->
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
