@@ -4,7 +4,7 @@
     --accent: #f59e0b;
     --dark: #0f172a;
     --light: #f8fafc;
-    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+    --gradient: #4093ae;
     --glass: rgba(255, 255, 255, 0.1);
 }
 
@@ -43,7 +43,7 @@ body {
 .logo {
     font-size: 2rem;
     font-weight: 800;
-    background: var(--gradient);
+    background: #406bd5;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: -1px;
@@ -572,3 +572,35 @@ input:focus, textarea:focus {
     color: var(--primary);
 
 }
+
+
+.bg-pastel-motion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(-45deg,
+      #faa4ec,  /* pastel pink */
+      #4093ae,  /* pastel blue */
+      #918551,  /* pastel yellow */
+      #7af78d,  /* pastel green */
+      #a4676b   /* pastel coral */
+    );
+    background-size: 400% 400%;
+    animation: pastelMotion 10s ease infinite;
+    z-index: -1;
+    opacity: 0.6;
+  }
+  
+  @keyframes pastelMotion {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
