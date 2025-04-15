@@ -1,41 +1,133 @@
-<!-- Add same header as other pages -->
-<main class="auth-hero">
-    <div class="auth-container" data-aos="zoom-in">
-        <div class="payment-success">
-            <div class="checkmark">✓</div>
-            <h2>Payment Successful!</h2>
-            <p id="paymentAmount"></p>
-            <a href="dashboard.html" class="cta-btn">
-                <i class="fas fa-arrow-left"></i> Return to Dashboard
-            </a>
-        </div>
-    </div>
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Payment Successful</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #1e293b, #0f172a);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-<script>
-// Add this script section
-document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const amount = urlParams.get('amount') || '0.00';
-    document.getElementById('paymentAmount').textContent = `$${amount} has been processed`;
-});
-</script>
+    .payment-success {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3rem 2rem;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      animation: fadeSlideUp 0.8s ease-in-out;
+    }
 
-<style>
-.payment-success {
-    text-align: center;
-}
+    .checkmark {
+      width: 100px;
+      height: 100px;
+      margin: 1rem auto;
+    }
 
-.checkmark {
-    font-size: 4rem;
-    color: #10b981;
-    margin: 1rem 0;
-    animation: scaleUp 0.5s ease;
-}
+    .checkmark circle {
+      fill: none;
+      stroke: #10b981;
+      stroke-width: 5;
+      stroke-dasharray: 314;
+      stroke-dashoffset: 314;
+      animation: drawCircle 1s ease forwards;
+    }
 
-@keyframes scaleUp {
-    0% { transform: scale(0); }
-    90% { transform: scale(1.1); }
-    100% { transform: scale(1); }
-}
-</style>
+    .checkmark path {
+      fill: none;
+      stroke: #10b981;
+      stroke-width: 5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: drawTick 1s 0.8s ease forwards;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 1rem;
+    }
+
+    p#paymentAmount {
+      font-size: 1.2rem;
+      margin: 1rem 0;
+      color: #d1d5db;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      background: #10b981;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .cta-btn:hover {
+      background: #0f766e;
+    }
+
+    @keyframes drawCircle {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes drawTick {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="auth-hero header">
+        
+          
+      <div class="payment-success">
+        <svg class="checkmark" viewBox="0 0 120 120">
+            <circle class="checkmark-circle" cx="60" cy="60" r="50" />
+            <path class="checkmark-check" d="M40 65 L55 80 L85 45" />
+          </svg>
+        <h2>Payment Successful!</h2>
+        <p id="paymentAmount"></p>
+        <a href="dashboard.html" class="cta-btn">
+          <i class="fas fa-arrow-left"></i> Return to Dashboard
+        </a>
+      </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const amount = urlParams.get('amount') || '0.00';
+      document.getElementById('paymentAmount').textContent = `$${amount} has been processed successfully.`;
+    });
+  </script>
+</body>
+</html>
