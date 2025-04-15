@@ -255,15 +255,23 @@ a.cta-btn {
   z-index: 1;
 }
 
+textarea{
+  resize: none;
+}
 /* Contact Form */
 .contact {
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
   padding: 8rem 5%;
   background: var(--gradient);
   color: white;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .contact-form {
-  max-width: 600px;
+  min-width: 55%;
   margin: 0 auto;
   background: var(--glass);
   padding: 3rem;
