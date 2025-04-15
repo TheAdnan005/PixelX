@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PixelX - Next-Gen Advertising Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
@@ -13,12 +15,11 @@
 
 <body>
     <div class="bg-pastel-motion"></div>
-
-
-
     <header class="header">
         <nav class="nav">
             <a href="#" class="logo">PixelX</a>
+            
+            <!-- Desktop Navigation -->
             <div class="nav-links">
                 <a href="#services">Services</a>
                 <a href="#work">Work</a>
@@ -27,10 +28,22 @@
                 <a href="login.html">Login</a>
                 <a href="signup.html">Signup</a>
             </div>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+    
+            <button class="hamburger">&#9776;</button>
+            <button class="cross">&#735;</button>
         </nav>
+    
+        <!-- Mobile Menu (MOVED OUTSIDE NAV) -->
+        <div class="mobile-menu">
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="signup.html">Signup</a></li>
+            </ul>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -39,8 +52,8 @@
             <h1 class="typewriter-text"><span id="typewriter"></span></h1>
             <p>We create immersive experiences that drive results and captivate audiences</p>
             <button class="cta-btn">Start Your Journey</button>
-          </div>
-          
+        </div>
+
         <div class="hero-visual" data-aos="fade-left">
             <!-- Add your 3D illustration/animations here -->
         </div>
@@ -183,31 +196,31 @@
     <section class="testimonials" id="testimonials">
         <h2 data-aos="fade-up">Client Success Stories</h2>
         <div class="testimonial-slider">
-          <div class="testimonial-card active">
-            <p>"PixelX transformed our brand presence completely!"</p>
-            <h4>- Ayesha R., Marketing Lead</h4>
-          </div>
-          <div class="testimonial-card">
-            <p>"Their design team understood our vision perfectly. The result was beyond our expectations."</p>
-            <h4>- Ravi T., Startup Founder</h4>
-          </div>
-          <div class="testimonial-card">
-            <p>"Working with PixelX was a game-changer. Our engagement rate doubled in just a month!"</p>
-            <h4>- Meena S., Social Media Manager</h4>
-          </div>
-          <div class="testimonial-card">
-            <p>"Creative, professional, and always on time. Highly recommend PixelX for any branding needs."</p>
-            <h4>- Daniel M., Creative Director</h4>
-          </div>
-          <div class="testimonial-card">
-            <p>"From logo to website, everything was sleek and aligned with our brand. Loved the collaboration!"</p>
-            <h4>- Priya K., Product Manager</h4>
-          </div>
+            <div class="testimonial-card active">
+                <p>"PixelX transformed our brand presence completely!"</p>
+                <h4>- Ayesha R., Marketing Lead</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Their design team understood our vision perfectly. The result was beyond our expectations."</p>
+                <h4>- Ravi T., Startup Founder</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Working with PixelX was a game-changer. Our engagement rate doubled in just a month!"</p>
+                <h4>- Meena S., Social Media Manager</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"Creative, professional, and always on time. Highly recommend PixelX for any branding needs."</p>
+                <h4>- Daniel M., Creative Director</h4>
+            </div>
+            <div class="testimonial-card">
+                <p>"From logo to website, everything was sleek and aligned with our brand. Loved the collaboration!"</p>
+                <h4>- Priya K., Product Manager</h4>
+            </div>
         </div>
-      </section>
-      
+    </section>
 
-    
+
+
 
     <!-- Contact Section -->
     <section class="contact" id="contact">

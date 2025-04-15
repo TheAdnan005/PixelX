@@ -7,6 +7,7 @@ if (typeof AOS !== "undefined") {
   });
 }
 
+
 document.addEventListener("DOMContentLoaded", () => {
     AOS.init({
       duration: 1000,
@@ -28,6 +29,94 @@ document.addEventListener("DOMContentLoaded", () => {
     const hero = document.getElementById("heroContent");
     if (hero) observer.observe(hero);
   });
+  document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.querySelector(".hamburger");
+    const mobileMenu = document.querySelector(".mobile-menu");
+    const hero = document.querySelector(".hero");
+    const mobileLinks = document.querySelectorAll(".mobile-menu a");
+    const body = document.body;
+
+    // Toggle menu with slide-down animation
+    hamburger.addEventListener("click", () => {
+        const isOpening = !mobileMenu.classList.contains("active");
+        
+        if (isOpening) {
+            // Opening animation (slide down)
+            mobileMenu.style.transform = "translateY(-100%)";
+            mobileMenu.classList.add("active");
+            body.style.overflow = "hidden";
+            hamburger.textContent = "✕";
+            
+            // Trigger the slide down animation
+            setTimeout(() => {
+                mobileMenu.style.transform = "translateY(0)";
+                mobileMenu.style.transition = "transform 0.4s ease-out";
+            }, 10);
+            
+            // Adjust hero padding
+            hero.style.paddingTop = "400px";
+        } else {
+            // Closing animation (slide up)
+            mobileMenu.style.transform = "translateY(-100%)";
+            mobileMenu.style.transition = "transform 0.4s ease-out";
+            
+            setTimeout(() => {
+                mobileMenu.classList.remove("active");
+                mobileMenu.style.transform = "";
+                mobileMenu.style.transition = "";
+                body.style.overflow = "";
+                hamburger.textContent = "☰";
+                hero.style.paddingTop = "0px";
+            }, 400);
+        }
+    });
+
+    // Close menu when clicking on links
+    mobileLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            // Slide up animation when closing
+            mobileMenu.style.transform = "translateY(-100%)";
+            mobileMenu.style.transition = "transform 0.4s ease-out";
+            
+            setTimeout(() => {
+                mobileMenu.classList.remove("active");
+                mobileMenu.style.transform = "";
+                mobileMenu.style.transition = "";
+                body.style.overflow = "";
+                hamburger.textContent = "☰";
+                hero.style.paddingTop = "0px";
+                
+                // Handle navigation
+                const target = link.getAttribute("href");
+                if (target.startsWith("#")) {
+                    e.preventDefault();
+                    document.querySelector(target).scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
+            }, 400);
+        });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target) && mobileMenu.classList.contains("active")) {
+            // Slide up animation when closing
+            mobileMenu.style.transform = "translateY(-100%)";
+            mobileMenu.style.transition = "transform 0.4s ease-out";
+            
+            setTimeout(() => {
+                mobileMenu.classList.remove("active");
+                mobileMenu.style.transform = "";
+                mobileMenu.style.transition = "";
+                body.style.overflow = "";
+                hamburger.textContent = "☰";
+                hero.style.paddingTop = "0px";
+            }, 400);
+        }
+    });
+});
+
   
   function startTypewriter() {
     const text = "Transform Your Brand with Digital Excellence";
@@ -63,17 +152,6 @@ setInterval(() => {
 
 
 
-
-// Mobile Menu Toggle
-const menuToggle = document.querySelector(".menu-toggle");
-const navLinks = document.querySelector(".nav-links");
-
-if (menuToggle && navLinks) {
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    menuToggle.classList.toggle("active");
-  });
-}
 
 // Smooth Scroll
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -258,9 +336,6 @@ function handlePayment(e) {
   const urlParams = new URLSearchParams(window.location.search);
   const amount = urlParams.get("budget") || "50.00";
 
-  // Show confirmation
-  if (confirm(`Confirm payment of $${amount}?`)) {
-    // Show success animation
     document.querySelector(".payment-card").classList.add("payment-success");
 
     // Redirect after delay
@@ -268,7 +343,7 @@ function handlePayment(e) {
       window.location.href = "payment-success.html?amount=" + amount;
     }, 2000);
   }
-}
+
 
 // Load billing amount from URL
 function loadBillingAmount() {

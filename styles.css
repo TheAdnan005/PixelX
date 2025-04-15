@@ -790,3 +790,113 @@ input[type="month"]::-webkit-calendar-picker-indicator {
     border-color: transparent;
   }
 }
+/* Base styles - hide mobile elements by default */
+.hamburger,
+.cross,
+.mobile-menu {
+  display: none;
+}
+
+/* Desktop navigation */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 768px) {
+  /* Hamburger button */
+  .hamburger {
+    display: block;
+    background: none;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: var(--dark); /* Use your theme color */
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0.5rem;
+  }
+
+  /* Cross button */
+  .cross {
+    display: none;
+    background: none;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    color: var(--dark);
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0.5rem;
+  }
+
+  /* Mobile menu container */
+  .mobile-menu {
+    position: fixed;
+    top: 94px; /* Adjust based on header height */
+    left: 0;
+    width: 100%;
+    background: var(--gradient); /* Match your header background */
+    color: #02164a;
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    padding: 1rem 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    transform: translateY(-20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    transition: transform 0.4s ease-out;
+  }
+
+  .mobile-menu.active {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Menu list styles */
+  .mobile-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .mobile-menu li {
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-menu li:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-menu li:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-menu a {
+    color: #02164a;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--accent); /* Your accent color */
+  }
+
+  /* Hide desktop navigation */
+  .nav-links {
+    display: none !important;
+  }
+}
