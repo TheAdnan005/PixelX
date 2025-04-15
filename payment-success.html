@@ -1,0 +1,41 @@
+<!-- Add same header as other pages -->
+<main class="auth-hero">
+    <div class="auth-container" data-aos="zoom-in">
+        <div class="payment-success">
+            <div class="checkmark">✓</div>
+            <h2>Payment Successful!</h2>
+            <p id="paymentAmount"></p>
+            <a href="dashboard.html" class="cta-btn">
+                <i class="fas fa-arrow-left"></i> Return to Dashboard
+            </a>
+        </div>
+    </div>
+</main>
+
+<script>
+// Add this script section
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const amount = urlParams.get('amount') || '0.00';
+    document.getElementById('paymentAmount').textContent = `$${amount} has been processed`;
+});
+</script>
+
+<style>
+.payment-success {
+    text-align: center;
+}
+
+.checkmark {
+    font-size: 4rem;
+    color: #10b981;
+    margin: 1rem 0;
+    animation: scaleUp 0.5s ease;
+}
+
+@keyframes scaleUp {
+    0% { transform: scale(0); }
+    90% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+</style>

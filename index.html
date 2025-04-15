@@ -24,7 +24,6 @@
                 <a href="#work">Work</a>
                 <a href="#testimonials">Testimonials</a>
                 <a href="#contact">Contact</a>
-                <!-- Change these links -->
                 <a href="login.html">Login</a>
                 <a href="signup.html">Signup</a>
             </div>
@@ -36,11 +35,12 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content" data-aos="fade-up">
-            <h1>Transform Your Brand with Digital Excellence</h1>
+        <div class="hero-content" data-aos="fade-up" id="heroContent">
+            <h1 class="typewriter-text"><span id="typewriter"></span></h1>
             <p>We create immersive experiences that drive results and captivate audiences</p>
             <button class="cta-btn">Start Your Journey</button>
-        </div>
+          </div>
+          
         <div class="hero-visual" data-aos="fade-left">
             <!-- Add your 3D illustration/animations here -->
         </div>
@@ -55,21 +55,159 @@
                 <h3>Digital Advertising</h3>
                 <p>Targeted campaigns across all digital platforms</p>
             </div>
-            <!-- Add more service cards -->
+
+            <div class="service-card" data-aos="zoom-in">
+                <i class="fas fa-bullhorn"></i>
+                <h3>Branding</h3>
+                <p>Creating a unique identity and voice for your brand</p>
+            </div>
+
+            <div class="service-card" data-aos="zoom-in">
+                <i class="fas fa-pen-nib"></i>
+                <h3>Content Creation</h3>
+                <p>Engaging content that tells your story</p>
+            </div>
+
+            <div class="service-card" data-aos="zoom-in">
+                <i class="fas fa-chart-line"></i>
+                <h3>Advertising Strategy</h3>
+                <p>Data-driven strategies to maximize your ROI</p>
+            </div>
+
+            <div class="service-card" data-aos="zoom-in">
+                <i class="fas fa-video"></i>
+                <h3>Video Production</h3>
+                <p>High-impact video content to boost engagement</p>
+            </div>
+
         </div>
     </section>
+
+
+    <section id="work">
+        <h2>Our Work</h2>
+        <div class="work-category">
+            <h3>Digital Advertising</h3>
+            <div class="work-items">
+                <div class="work-item">
+                    <h4>Social Media Campaign</h4>
+                    <video width="320" height="240" controls>
+                        <source src="videos/social-media-campaign.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>A targeted campaign to boost brand presence across digital platforms.</p>
+                </div>
+                <div class="work-item">
+                    <h4>Search Engine Marketing</h4>
+                    <video width="320" height="240" controls>
+                        <source src="videos/sem.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>Optimized SEM strategies to enhance online visibility and conversions.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Branding Projects -->
+        <div class="work-category">
+            <h3>Branding</h3>
+            <div class="work-items">
+                <div class="work-item">
+                    <h4>Logo Redesign</h4>
+                    <video width="320" height="240" controls>
+                        <source src="videos/logo-redesign.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>A fresh, modern logo that encapsulates the client's vision.</p>
+                </div>
+                <div class="work-item">
+                    <h4>Brand Identity Development</h4>
+                    <video width="320" height="240" controls>
+                        <source src="videos/brand-identity.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>Comprehensive brand identity packages to create a lasting impression.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Creation Projects -->
+        <div class="work-category">
+            <h3>Content Creation</h3>
+            <div class="work-items">
+                <div class="work-item">
+                    <h4>Viral Video Campaign</h4>
+                    <video width="320" height="240" controls>
+                        <source src="videos/viral-campaign.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>Engaging video content that generated buzz and went viral online.</p>
+                </div>
+                <div class="work-item">
+                    <h4>Infographic Animation</h4>
+                    <video width="320" height="240" controls>
+                        <source src="videos/infographic-animation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>Dynamic animated infographics explaining complex ideas with simplicity.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Production Projects -->
+        <div class="work-category">
+            <h3>Video Production</h3>
+            <div class="work-items">
+                <div class="work-item">
+                    <h4>Commercial Video</h4>
+                    <video width="320" height="240" controls>
+                        <source src="videos/commercial-video.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>High-quality commercials that resonate with audiences on multiple platforms.</p>
+                </div>
+                <div class="work-item">
+                    <h4>Event Coverage</h4>
+                    <video width="320" height="240" controls>
+                        <source src="videos/event-coverage.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p>Comprehensive video coverage capturing the energy of live events.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Testimonials Slider -->
     <section class="testimonials" id="testimonials">
         <h2 data-aos="fade-up">Client Success Stories</h2>
         <div class="testimonial-slider">
-            <div class="testimonial-card" data-aos="flip-up">
-                <p>"PixelX transformed our brand presence completely!"</p>
-                <h4>- Client Name</h4>
-            </div>
-            <!-- Add more testimonials -->
+          <div class="testimonial-card active">
+            <p>"PixelX transformed our brand presence completely!"</p>
+            <h4>- Ayesha R., Marketing Lead</h4>
+          </div>
+          <div class="testimonial-card">
+            <p>"Their design team understood our vision perfectly. The result was beyond our expectations."</p>
+            <h4>- Ravi T., Startup Founder</h4>
+          </div>
+          <div class="testimonial-card">
+            <p>"Working with PixelX was a game-changer. Our engagement rate doubled in just a month!"</p>
+            <h4>- Meena S., Social Media Manager</h4>
+          </div>
+          <div class="testimonial-card">
+            <p>"Creative, professional, and always on time. Highly recommend PixelX for any branding needs."</p>
+            <h4>- Daniel M., Creative Director</h4>
+          </div>
+          <div class="testimonial-card">
+            <p>"From logo to website, everything was sleek and aligned with our brand. Loved the collaboration!"</p>
+            <h4>- Priya K., Product Manager</h4>
+          </div>
         </div>
-    </section>
+      </section>
+      
+
+    
 
     <!-- Contact Section -->
     <section class="contact" id="contact">

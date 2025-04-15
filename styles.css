@@ -15,13 +15,16 @@
     font-family: 'Inter', sans-serif;
 }
 
+
 body {
     background: var(--light);
     color: var(--dark);
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
-
+li{
+    list-style: none;
+}
 /* Header Styles */
 .header {
     background: var(--glass);
@@ -196,7 +199,7 @@ a.cta-btn {
     left: 0;
     width: 100%;
     height: 4px;
-    background: var(--accent);
+    /* background: var(--accent); */
     border-radius: 20px 20px 0 0;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -205,37 +208,44 @@ a.cta-btn {
 .service-card:hover::before {
     opacity: 1;
 }
-
-/* Testimonials Slider */
+/* Testimonials Section */
 .testimonials {
-    padding: 8rem 5%;
+    padding: 2rem 5%;
     background: var(--dark);
     color: white;
-}
-
-.testimonial-slider {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 2rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding: 2rem 0;
-}
-
-.testimonial-card {
+    text-align: center;
+  }
+  
+  .testimonial-slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    height: 100px;
+  }
+  
+  .testimonial-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.6s ease, transform 0.6s ease;
     background: var(--glass);
     padding: 2rem;
     border-radius: 20px;
-    min-width: 400px;
-    scroll-snap-align: start;
     backdrop-filter: blur(10px);
-    transition: transform 0.3s ease;
-}
-
-.testimonial-card:hover {
-    transform: scale(1.02);
-}
-
+    box-sizing: border-box;
+    z-index: 0;
+  }
+  
+  .testimonial-card.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+  }
+  
 /* Contact Form */
 .contact {
     padding: 8rem 5%;
@@ -604,3 +614,162 @@ input:focus, textarea:focus {
       background-position: 0% 50%;
     }
   }
+
+  /* Work Section */
+#work {
+    padding: 8rem 5%;
+    background: var(--light);
+    color: var(--dark);
+}
+
+#work h2 {
+    position: relative;
+    top: -80px;
+}
+
+/* Work Section Header */
+.work-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.work-header h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.work-header p {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+/* Work Category Container */
+.work-category {
+    margin-bottom: 4rem;
+}
+
+.work-category h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Work Items Grid */
+.work-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* Individual Work Item Card */
+.work-item {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+}
+
+.work-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* Work Item Heading & Description */
+.work-item h4 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.work-item p {
+    font-size: 1rem;
+    color: #64748b;
+}
+
+/* Video Styling Within Work Items */
+.work-item video {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transition: filter 0.3s ease;
+}
+
+.work-item video:hover {
+    filter: brightness(1.05);
+}
+
+.activity-item {
+    margin-top: 10px;
+}
+
+/* Billing Page Prototype Styles */
+.payment-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.payment-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--light);
+    border-radius: 15px;
+}
+
+.payment-header h3 {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+
+.form-group.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-group.row .col {
+    flex: 1;
+}
+
+input[type="month"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+}
+
+.ads-form input{
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    font-size: 1rem;
+    color: var(--secondary);
+}
+
+.typewriter-text {
+    font-family: inherit;
+    font-size: 2.5rem;
+    white-space: wrap;
+    width: fit-content;
+    min-height: 3.2rem;
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  
