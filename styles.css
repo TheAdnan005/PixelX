@@ -956,3 +956,8 @@ video {
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+.form-group { margin-bottom: 1rem; }
+  label { display: block; margin-bottom: 0.25rem; font-weight: 600; }
+  select, input { width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px; }
+  #budget { background: #f0f0f0; }

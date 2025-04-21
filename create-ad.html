@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <title>PixelX - Create Ad</title>
 </head>
+
 <body>
     <header class="header">
         <nav class="nav">
@@ -43,10 +45,10 @@
                     <label>Campaign Name</label>
                     <input class="create-ad-text" type="text" id="campaignName" required>
                 </div>
-                
+
                 <div class="form-group">
                     <label>Ad Type</label>
-                    <select id="adType" required>
+                    <select id="adType" required onchange="updateAdOptions()">
                         <option value="">Select Ad Type</option>
                         <option value="banner">Banner Ad</option>
                         <option value="video">Video Ad</option>
@@ -54,7 +56,7 @@
                         <option value="social">Social Media Ad</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label>Target Audience</label>
                     <div class="audience-tags">
@@ -66,7 +68,7 @@
                     </div>
                     <input type="hidden" id="selectedAudience">
                 </div>
-                
+
                 <div class="form-group">
                     <label>Upload Creative</label>
                     <div class="upload-area" id="uploadArea">
@@ -75,10 +77,17 @@
                         <input type="file" id="adCreative" accept="image/*,video/*" hidden>
                     </div>
                 </div>
+
                 
-                <div class="form-group">
-                    <label>Budget ($)</label>
-                    <input class="create-ad-text" type="number" id="budget" min="50" required>
+                
+                <div id="adOptionsContainer" style="display: none;">
+                    <!-- Dynamic options will appear here based on ad type -->
+                </div>
+                
+                <div id="budgetResult" class="form-group" style="display: none;">
+                    <label>Calculated Budget ($)</label>
+                    <input class="create-ad-text" type="number" id="budget" readonly>
+                    <small id="budgetBreakdown"></small>
                 </div>
                 
                 <button type="submit" class="cta-btn">Launch Campaign</button>
@@ -90,4 +99,5 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
