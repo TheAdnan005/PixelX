@@ -6,6 +6,38 @@ if (typeof AOS !== "undefined") {
     mirror: true,
   });
 }
+const slider = document.getElementById("videoSlider");
+        const slides = slider.querySelectorAll(".slide");
+        let currentSlide = 0;
+    
+        function playVideoAndMove(index) {
+            const current = slides[index];
+            const video = current.querySelector("video");
+    
+            // Reset all videos
+            slides.forEach(slide => {
+                const vid = slide.querySelector("video");
+                vid.pause();
+                vid.currentTime = 0;
+            });
+    
+            // Slide transition
+            slider.style.transform = `translateX(-${index * 100}%)`;
+    
+            // Play current video
+            video.play();
+    
+            // After video ends, go to next
+            video.onended = () => {
+                currentSlide = (index + 1) % slides.length;
+                playVideoAndMove(currentSlide);
+            };
+        }
+    
+        // Start autoplay
+        window.addEventListener("DOMContentLoaded", () => {
+            playVideoAndMove(currentSlide);
+        });
 
 
 document.addEventListener("DOMContentLoaded", () => {
