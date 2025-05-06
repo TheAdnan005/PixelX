@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
             (campaign) => `
           <div class="activity-item" data-aos="fade-up">
             <h4>${campaign.campaignName} - ${campaign.adType}</h4>
-            <p>Budget: $${campaign.budget} | Status: ${campaign.status}</p>
+            <p>Budget: ₹${campaign.budget} | Status: ${campaign.status}</p>
             <span>${new Date(campaign.createdAt).toLocaleString()}</span>
           </div>
         `
@@ -274,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="campaign-item" data-aos="fade-up">
             <div class="campaign-info">
               <h3>${campaign.campaignName}</h3>
-              <p>${campaign.adType} • ${campaign.status} • $${campaign.budget} budget</p>
+              <p>${campaign.adType} • ${campaign.status} • ₹${campaign.budget} budget</p>
             </div>
             <div class="campaign-actions">
               <button class="action-btn view"><i class="fas fa-chart-bar"></i> View Stats</button>
@@ -325,14 +325,14 @@ if (adForm) {
 const pricing = {
   banner: {
       sizes: {
-          small: { price: 50, desc: "300x250" },
-          medium: { price: 80, desc: "728x90" },
-          large: { price: 120, desc: "970x250" }
+          small: { price: 200, desc: "300x250" },
+          medium: { price: 400, desc: "728x90" },
+          large: { price: 500, desc: "970x250" }
       },
       localities: {
-          standard: { price: 1, desc: "Regular locations" },
-          premium: { price: 1.5, desc: "High traffic areas" },
-          elite: { price: 2, desc: "Prime city centers" }
+          standard: { price: 20, desc: "Regular locations" },
+          premium: { price: 30, desc: "High traffic areas" },
+          elite: { price: 40, desc: "Prime city centers" }
       },
       duration: {
           week: { price: 1, desc: "7 days" },
@@ -347,9 +347,9 @@ const pricing = {
           long: { price: 250, desc: "60 seconds" }
       },
       platforms: {
-          youtube: { price: 1, desc: "YouTube" },
-          ott: { price: 1.5, desc: "OTT Platforms" },
-          both: { price: 2, desc: "YouTube + OTT" }
+          youtube: { price: 10, desc: "YouTube" },
+          ott: { price: 15, desc: "OTT Platforms" },
+          both: { price: 20, desc: "YouTube + OTT" }
       },
       impressions: {
           low: { price: 1000, desc: "10,000 views" },
@@ -359,9 +359,9 @@ const pricing = {
   },
   social: {
       platforms: {
-          facebook: { price: 0.05, desc: "Facebook" },
-          instagram: { price: 0.08, desc: "Instagram" },
-          both: { price: 0.1, desc: "Both platforms" }
+          facebook: { price: 0.5, desc: "Facebook" },
+          instagram: { price: 0.8, desc: "Instagram" },
+          both: { price: 1, desc: "Both platforms" }
       },
       reach: {
           small: { price: 1000, desc: "10,000 people" },
@@ -510,7 +510,7 @@ function updateAdOptions() {
 function generateOptions(options) {
   let html = '';
   for (const [key, value] of Object.entries(options)) {
-      html += `<option value="${key}">${value.desc} ($${value.price}${key === 'small' || key === 'medium' || key === 'large' ? '' : key === 'low' || key === 'medium' || key === 'high' ? '' : '/day'})</option>`;
+      html += `<option value="${key}">${value.desc} (₹${value.price}${key === 'small' || key === 'medium' || key === 'large' ? '' : key === 'low' || key === 'medium' || key === 'high' ? '' : '/day'})</option>`;
   }
   return html;
 }
@@ -533,7 +533,7 @@ function calculateBudget() {
           const duration = pricing.banner.duration[document.getElementById('duration').value].price;
           budget = size * locality * duration;
           
-          breakdownText = `Calculation: $${size} (size) × ${locality}× (locality multiplier) × ${duration} (${document.getElementById('duration').value} duration)`;
+          breakdownText = `Calculation: ₹${size} (size) × ${locality}× (locality multiplier) × ${duration} (${document.getElementById('duration').value} duration)`;
           break;
           
       case 'video':
@@ -542,7 +542,7 @@ function calculateBudget() {
           const impressions = pricing.video.impressions[document.getElementById('impressions').value].price;
           budget = length * platform + impressions;
           
-          breakdownText = `Calculation: $${length} (production) × ${platform}× (platform multiplier) + $${impressions} (impressions)`;
+          breakdownText = `Calculation: ₹${length} (production) × ${platform}× (platform multiplier) + ₹${impressions} (impressions)`;
           break;
           
       case 'social':
@@ -551,7 +551,7 @@ function calculateBudget() {
           const socialDuration = pricing.social.duration[document.getElementById('socialDuration').value].price;
           budget = reach * socialPlatform * socialDuration;
           
-          breakdownText = `Calculation: ${reach} people × $${socialPlatform}/person × ${socialDuration} (duration multiplier)`;
+          breakdownText = `Calculation: ${reach} people × ₹${socialPlatform}/person × ${socialDuration} (duration multiplier)`;
           break;
           
       case 'native':
@@ -560,7 +560,7 @@ function calculateBudget() {
           const nativeDuration = pricing.native.duration[document.getElementById('nativeDuration').value].price;
           budget = placement * ctr * nativeDuration;
           
-          breakdownText = `Calculation: $${placement} (placement) × ${ctr}× (CTR multiplier) × ${nativeDuration} (duration multiplier)`;
+          breakdownText = `Calculation: ₹${placement} (placement) × ${ctr}× (CTR multiplier) × ${nativeDuration} (duration multiplier)`;
           break;
   }
   
